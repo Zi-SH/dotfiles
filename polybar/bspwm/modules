@@ -1,0 +1,224 @@
+;====================================================
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+;====================================================
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /home
+
+;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F${colors.foreground}   %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+;====================================================
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+label-monitor = %name%
+index-sort = true
+wrapping-scroll = false
+enable-click = true
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+; Force font on all styles
+label-font = 1
+label-active-font = 1
+label-focused-font = 1
+label-occupied-font = 1
+label-urgent-font = 1
+label-empty-font = 1
+
+; Separator
+label-separator = " "
+label-separator-padding = 0
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = "●"
+label-focused-background = ${label.label-focused-background}
+label-focused-underline = ${label.label-focused-underline}
+label-focused-padding = 3;${label.label-focused-padding}
+
+; occupied
+label-occupied = "●"
+label-occupied-padding = 3;${label.label-occupied-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = "◎"
+label-urgent-background = ${label.label-urgent-background}
+label-urgent-padding = 3;${label.label-urgent-padding}
+
+; empty
+label-empty = "○"
+label-empty-padding = 3;${label.label-empty-padding}
+
+ws-icon-0 = I;1
+ws-icon-1 = II;2
+ws-icon-2 = III;3
+ws-icon-3 = IV;4
+ws-icon-4 = V;5
+ws-icon-5 = VI;6
+ws-icon-6 = VII;7
+ws-icon-7 = VIII;8
+ws-icon-8 = IX;9
+ws-icon-9 = X;10
+
+;====================================================
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+;====================================================
+[module/cpu]
+type = internal/cpu
+interval = 2
+label-font = 3
+format-prefix = %{F${colors.foreground} %{T4}  
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label =  %percentage%%
+
+;====================================================
+[module/memory]
+type = internal/memory
+interval = 2
+label-font = 3
+format-prefix = %{F${colors.foreground} %{T4}  
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+;====================================================
+[module/eth]
+type = internal/network
+interface = enp6s0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+;====================================================
+[module/date]
+type = internal/date
+interval = 1
+
+label = %time%
+label-font = 3
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = | %I:%M %p |
+time-alt = | %x | 
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+;====================================================
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+;====================================================
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+;====================================================
+
+[module/gpu]
+type = custom/script
+format-prefix = %{F${colors.foreground} %{T4}  
+format-suffic = ' c°'
+
+exec = nvidia-settings -q gpucoretemp | sed -n "/Attribute 'GPUCoreTemp' (COFFEEBOX:0\[/p" | egrep -o "([0-9]{2})" | sed '/^.*/ s/$/c/'
+
+;click-left = sh ../scripts/fancontrol.sh
+;scroll-up = sh ../scripts/fanup.sh
+;scroll-down = sh ../scripts/fandown.sh
+
+click-left = echo hi
+
+interval = 3
+format-underline = #0a6cf5
+
+;====================================================
+[module/tray-left]
+type = custom/text
+; Unicode blank space
+content =  
+content-padding = 2
+
+;====================================================
+[settings]
+screenchange-reload = true
+
+;====================================================
+[global/wm]
+margin-top = 5
+margin-bottom = 5

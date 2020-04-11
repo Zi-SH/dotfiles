@@ -1,0 +1,45 @@
+[colors]
+background = #be0e0e0e
+background-alt = #272727
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[label]
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 2
+label-unfocused-padding = 2
+label-occupied-padding = 2
+label-empty-forground = $[colors.foreground-alt}
+label-empty-padding = 2
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+label-mode-padding = 2
+
+[format]
+width = 100%
+height = 24
+radius = 0
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 0 ;used to be 3
+line-color = #f00
+border-size = 0
+border-color = #00000000
+font-0 = fixed:pixelsize=10;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-1 = "Noto Sans:size=10;1"
+font-2 = Hack-Regular:size=8:pixelsize=10;1
+font-3 = fontawesome:pixelsize=10;1
+
+[monitors]
+;DVI-I-1 is left, DP-0 is center, HDMI-0 is right
+monitor0 = DVI-D-0
+monitor1 = DP-0
+monitor2 = HDMI-0
