@@ -8,7 +8,8 @@ alt + Return
 
 ## program launcher
 alt + Menu
-	rofi -show run -modi run
+	rofi -show run -combi-modi "run, +window, ssh" -width 800 -lines 10
+	#rofi -show run -modi run -p "> " -width 1000 -disable-history
 
 ## print screen
 Print
@@ -16,13 +17,13 @@ Print
 
 ## Pulse Audio Controls
 XF86AudioRaiseVolume
-        pactl set-sink-volume 1 +2.5%
+	sh ./.config/sxhkd/scripts/volume-control.sh modify +1%
 
 XF86AudioLowerVolume
-        pactl set-sink-volume 1 -2.5%
+	sh ./.config/sxhkd/scripts/volume-control.sh modify -1%
 
 XF86AudioMute
-        pactl set-sink-mute 1 toggle
+	sh ./.config/sxhkd/scripts/mute-toggle.sh toggle
 
 #####                        #####
 ##### System hotkeys         #####
