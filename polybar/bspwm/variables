@@ -39,7 +39,7 @@ font-2 = Hack-Regular:size=8:pixelsize=10;1
 font-3 = fontawesome:pixelsize=10;1
 
 [monitors]
-;DVI-I-1 is left, DP-0 is center, HDMI-0 is right
-monitor0 = DVI-D-0
-monitor1 = DP-0
+;DP-1 is left, DP-4 is center, HDMI-0 is right
+monitor0 = DP-1
+monitor1 = DP-4
 monitor2 = HDMI-0

@@ -12,8 +12,8 @@
 ;=====================================================
 
 [section/global]
-include-file = ~/.config/polybar/bspwm/modules
-include-file = ~/.config/polybar/bspwm/variables
+include-file = /home/zish/.config/polybar/bspwm/modules
+include-file = /home/zish/.config/polybar/bspwm/variables
 
 ;=====================================================
 ;   Bar [Left]
@@ -65,3 +65,5 @@ ws-icon-default = ♟
 modules-left = bspwm
 modules-center = 
 modules-right =
+
+

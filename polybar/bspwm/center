@@ -12,8 +12,8 @@
 ;=====================================================
 
 [section/global]
-include-file = ~/.config/polybar/bspwm/modules
-include-file = ~/.config/polybar/bspwm/variables
+include-file = /home/zish/.config/polybar/bspwm/modules
+include-file = /home/zish/.config/polybar/bspwm/variables
 
 
 ;=====================================================
@@ -30,6 +30,7 @@ radius = 0
 offset-x = 0
 offset-y = -1
 
+;fixed-center = false
 bottom = true
 override-redirect = false
 wm-restack = bspwm
@@ -73,6 +74,7 @@ radius = 0
 offset-x = 1555
 offset-y = -1
 
+;fixed-center = false
 bottom = true
 override-redirect = true
 wm-restack = bspwm
@@ -146,3 +148,9 @@ modules-right =
 
 tray-position = right
 tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+
+
+
