@@ -1,61 +1,35 @@
 ;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
-
-;=====================================================
 ;   Includes
 ;=====================================================
 
 [section/global]
-include-file = /home/zish/.config/polybar/bspwm/modules
-include-file = /home/zish/.config/polybar/bspwm/variables
+include-file = ./modules
+include-file = ./variables
 
 ;=====================================================
 ;   Bar [Left]
 ;=====================================================
-; Left side of left screen
 [bar/left]
 monitor = ${monitors.monitor0}
 
-width = 113
-height = 24
-radius = 0
-
-; Left aligned, so x is 0
-offset-x = 0
-offset-y = -1
-
-;fixed-center = false
-bottom = true
-override-redirect = false
-wm-restack = bspwm
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = ${format.line-size}
-line-color = ${format.line-color}
-
-border-size = ${format.border-size}
-border-color = ${format.border-color}
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = ${format.font-0}
-font-1 = ${format.font-1}
-font-2 = ${format.font-2}
-font-3 = ${format.font-3}
-
+;; Module ;;
 modules-left = bspwm
 modules-center = 
 modules-right =
 
+;; Colors ;;
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;; Font ;;
+font-0 = ${fonts.font-0}
+
+;; Position ;;
+bottom = true
+width = 46
+height = 20
+radius = 0
+
+; Fix for bar in front of full screen windows
+override-redirect = false
+wm-restack = bspwm
