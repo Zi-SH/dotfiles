@@ -1,20 +1,10 @@
 ;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
-
-;=====================================================
 ;   Includes
 ;=====================================================
 
 [section/global]
-include-file = /home/zish/.config/polybar/bspwm/modules
-include-file = /home/zish/.config/polybar/bspwm/variables
-
+include-file = ./modules
+include-file = ./variables
 
 ;=====================================================
 ;   Bar [Left]
@@ -22,43 +12,27 @@ include-file = /home/zish/.config/polybar/bspwm/variables
 [bar/left]
 monitor = ${monitors.monitor1}
 
-width = 113
-height = 24
-radius = 0
-
-; Left aligned, so x is 0
-offset-x = 0
-offset-y = -1
-
-;fixed-center = false
-bottom = true
-override-redirect = false
-wm-restack = bspwm
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = ${format.line-size}
-line-color = ${format.line-color}
-
-border-size = ${format.border-size}
-border-color = ${format.border-color}
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = ${format.font-0}
-font-1 = ${format.font-1}
-font-2 = ${format.font-2}
-font-3 = ${format.font-3}
-
+;; Module ;;
 modules-left = bspwm
 modules-center = 
 modules-right =
 
+;; Colors ;;
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;; Font ;;
+font-0 = ${fonts.font-0}
+
+;; Position ;;
+bottom = true
+width = 46
+height = 20
+radius = 0
+
+; Fix for bar in front of full screen windows
+override-redirect = false
+wm-restack = bspwm
 
 ;=====================================================
 ;   Bar [Center]
@@ -66,42 +40,28 @@ modules-right =
 [bar/center]
 monitor = ${monitors.monitor1}
 
+;; Modules ;;
+modules-left = 
+modules-center = cpu memory date filesystem gpu
+modules-right = 
+
+;; Font ;; 
+font-0 = ${fonts.font-1}
+font-1 = ${fonts.font-2}
+
+;; Position ;;
+bottom = true
 width = 350
 height = 24
 radius = 0
 
-;Half of the screen width minus half the width
+; Half of the screen width minus half the width
 offset-x = 1555
 offset-y = -1
 
-;fixed-center = false
-bottom = true
-override-redirect = true
+; Fix for bar in front of full screen windows
+override-redirect = false
 wm-restack = bspwm
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = ${format.line-size}
-line-color = ${format.line-color}
-
-border-size = ${format.border-size}
-border-color = ${format.border-color}
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = ${format.font-0}
-font-1 = ${format.font-1}
-font-2 = ${format.font-2}
-font-3 = ${format.font-3}
-
-modules-left = 
-modules-center = cpu memory date filesystem gpu
-modules-right = 
 
 ;=====================================================
 ;   Bar [Right]
@@ -109,48 +69,31 @@ modules-right =
 [bar/right]
 monitor = ${monitors.monitor1}
 
-width = 117
-height = 24
-radius = 0
-
-; Left aligned, so offset is 1920 - width
-offset-x = 3323
-offset-y = -1
-
-;fixed-center = false
-bottom = true
-override-redirect = true
-wm-restack = bspwm
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = ${format.line-size}
-line-color = ${format.line-color}
-
-border-size = ${format.border-size}
-border-color = ${format.border-color}
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = ${format.font-0}
-font-1 = ${format.font-1}
-font-2 = ${format.font-2}
-font-3 = ${format.font-3}
-
+;; Modules ;;
 modules-left = tray-left
 modules-center = 
 modules-right = 
 
+module-margin-left = 1
+module-margin-right = 2
+
+;; Font ;; 
+font-0 = ${fonts.font-2}
+
+;; Position ;;
+bottom = true
+width = 117
+height = 24
+radius = 0
+
+; Left aligned
+offset-x = 3323
+offset-y = -1
+
+;; Tray Settings ;;
 tray-position = right
 tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
 
-
-
-
+; Fix for bar in front of full screen windows
+override-redirect = false
+wm-restack = bspwm
