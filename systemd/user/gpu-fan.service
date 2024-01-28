@@ -1,0 +1,7 @@
+[Unit]
+Description=Custom NVIDIA Fan Control
+
+[Service]
+Type=simple
+LogLevelMax=1
+ExecStart=/bin/bash /home/zish/.config/systemd/user/gpu-fan/fan-control.sh
