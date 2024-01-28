@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for NVIDIA fan speed adjuster
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=10sec
+
+[Install]
+WantedBy=timers.target
