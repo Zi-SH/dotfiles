@@ -2,8 +2,9 @@
 Description=Timer for NVIDIA fan speed adjuster
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=10sec
+AccuracySec=1s
+OnActiveSec=5s
+OnUnitActiveSec=5sec
 
 [Install]
 WantedBy=timers.target
