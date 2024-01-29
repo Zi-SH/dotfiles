@@ -1,5 +1,5 @@
 [Unit]
-Description=Custom NVIDIA Fan Control
+Description=NVIDIA fan speed adjuster
 
 [Service]
 Type=simple
